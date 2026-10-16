@@ -55,14 +55,6 @@
     .message { max-width: 510px; margin: 24px auto; line-height: 1.8; font-size: 17px; }
     .date { font-size: clamp(20px, 4vw, 29px); margin: 10px 0; }
     .details { color: var(--muted); font: 12px/1.9 Arial, sans-serif; letter-spacing: .12em; text-transform: uppercase; }
-    .actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
-    button, .button {
-      border: 1px solid var(--gold); background: var(--gold); color: white; padding: 12px 18px;
-      font: 11px Arial, sans-serif; letter-spacing: .1em; text-transform: uppercase; cursor: pointer; text-decoration: none;
-      transition: transform .2s, background .2s;
-    }
-    button:hover, .button:hover { transform: translateY(-2px); background: #967035; }
-    .button.secondary { color: var(--ink); background: transparent; }
     .footer { margin-top: 28px; color: var(--muted); font-style: italic; font-size: 15px; }
     .hint { max-width: 620px; margin: 18px auto 32px; text-align: center; color: var(--muted); font: 12px/1.7 Arial, sans-serif; }
     .sparkle { position: absolute; pointer-events: none; color: var(--gold-light); opacity: 0; animation: drift 5s ease-in-out infinite; }
@@ -89,67 +81,10 @@
       <p class="message">Twenty-five years of cherished memories, countless blessings, and a love that keeps growing. Please save the date as we celebrate this beautiful milestone with the people who mean the most to us.</p>
       <div class="rule"></div>
       <div class="date" id="eventDate">Tuesday, 1st December 2026</div>
-      <p class="details" id="venue" style="margin-top:10px">Venue · Ludhiana</p>
-      <div class="actions">
-        <button id="calendarBtn" type="button">Add to calendar</button>
-        <button class="secondary" id="shareBtn" type="button">Share invitation</button>
-      </div>
+      <p class="details" id="venue" style="margin-top:10px">Hotel Maharaja Regency · Ludhiana</p>
       <div class="footer">An evening made more special by your presence.</div>
     </section>
     <p class="hint">A little celebration of a love story 25 years in the making. We look forward to celebrating with you.</p>
   </main>
-  <script>
-    /*
-      QUICK CUSTOMISATION:
-      Replace the placeholder text in the HTML above.
-      For a calendar file, also update the CONFIG values below.
-      Use date format YYYY-MM-DD and 24-hour time HH:MM.
-    */
-    const CONFIG = {
-      title: "25th Wedding Anniversary",
-      startDate: "2027-01-01", // CHANGE: YYYY-MM-DD
-      startTime: "18:00",      // CHANGE: HH:MM, 24-hour time
-      endTime: "21:00",        // CHANGE: HH:MM, 24-hour time
-      location: "[Venue · City]", // CHANGE
-      description: "Join us to celebrate 25 years of love and togetherness."
-    };
-
-    function makeICSDate(date, time) {
-      const [year, month, day] = date.split("-").map(Number);
-      const [hour, minute] = time.split(":").map(Number);
-      return `${year}${String(month).padStart(2,"0")}${String(day).padStart(2,"0")}T${String(hour).padStart(2,"0")}${String(minute).padStart(2,"0")}00`;
-    }
-    document.getElementById("calendarBtn").addEventListener("click", () => {
-      if (CONFIG.startDate === "2027-01-01" || CONFIG.location.includes("[")) {
-        alert("Please customise the event date and venue in index.html before using the calendar button.");
-        return;
-      }
-      const ics = [
-        "BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Anniversary Invitation//EN","CALSCALE:GREGORIAN",
-        "BEGIN:VEVENT",`UID:${Date.now()}@anniversary-invitation.local`,
-        `DTSTAMP:${new Date().toISOString().replace(/[-:]/g,"").replace(/\.\d{3}/,"")}`,
-        `DTSTART:${makeICSDate(CONFIG.startDate, CONFIG.startTime)}`,
-        `DTEND:${makeICSDate(CONFIG.startDate, CONFIG.endTime)}`,
-        `SUMMARY:${CONFIG.title}`,`LOCATION:${CONFIG.location}`,`DESCRIPTION:${CONFIG.description}`,
-        "END:VEVENT","END:VCALENDAR"
-      ].join("\r\n");
-      const blob = new Blob([ics], {type:"text/calendar;charset=utf-8"});
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a"); a.href = url; a.download = "anniversary-save-the-date.ics"; a.click();
-      URL.revokeObjectURL(url);
-    });
-    document.getElementById("shareBtn").addEventListener("click", async () => {
-      const data = { title: document.title, text: "Please save the date for our 25th wedding anniversary!", url: location.href };
-      try {
-        if (navigator.share) await navigator.share(data);
-        else if (navigator.clipboard && location.protocol === "https:") {
-          await navigator.clipboard.writeText(location.href);
-          alert("Invitation link copied.");
-        } else {
-          prompt("Copy your invitation link:", location.href);
-        }
-      } catch (e) { /* sharing was cancelled */ }
-    });
-  </script>
 </body>
 </html>
