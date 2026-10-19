@@ -10,9 +10,9 @@
 :root{--ivory:#faf9f7;--silver:#d4d7dc;--burgundy:#68192e;--deep:#42111f;--rose:#c995a0}
 *{box-sizing:border-box}body{margin:0;min-height:100vh;padding:30px 0;background:radial-gradient(ellipse at 50% 15%,#fffefd 0,rgba(250,249,248,.9) 30%,transparent 65%),radial-gradient(ellipse at 0 60%,#dfe0e380,transparent 45%),radial-gradient(ellipse at 100% 75%,#dfe0e380,transparent 45%),#f4f3f2;color:var(--ivory);font-family:Georgia,"Times New Roman",serif;overflow-x:hidden}
 .page{position:relative;isolation:isolate;width:min(92%,830px);margin:auto}
-.background-art{position:absolute;inset:-75px -145px;z-index:-1;pointer-events:none;background:url("assets/background.png") center/100% 100% no-repeat}
-.card{position:relative;isolation:isolate;overflow:hidden;text-align:center;padding:clamp(45px,7vw,72px) clamp(24px,7vw,66px);background:radial-gradient(ellipse at 50% 25%,#91344b38,transparent 58%),linear-gradient(160deg,#76263e,#67192e 48%,#4b1221);border:5px solid #85868c;border-radius:20px;box-shadow:0 24px 70px #471c273d}
-.frame{position:absolute;inset:17px;border:1px solid #b7bbc1;pointer-events:none;border-radius:12px;z-index:1}
+.background-art{position:absolute;inset:-25px -35px;z-index:-1;pointer-events:none;background:url("assets/background.png") center/100% 100% no-repeat}
+.card{position:relative;isolation:isolate;overflow:hidden;text-align:center;padding:clamp(45px,7vw,72px) clamp(24px,7vw,66px);background:radial-gradient(ellipse at 50% 25%,#91344b38,transparent 58%),linear-gradient(160deg,#76263e,#67192e 48%,#4b1221);border:5px solid #646a74;border-radius:20px;box-shadow:0 24px 70px #471c273d}
+.frame{position:absolute;inset:17px;border:1px solid #e0e3e8;pointer-events:none;border-radius:12px;z-index:1}
 /* One corner asset, mirrored for perfectly symmetrical placement */
 .corner{position:absolute;width:clamp(112px,18vw,170px);aspect-ratio:1200/1151;height:auto;z-index:2;pointer-events:none;filter:drop-shadow(0 0 2px #ffffff24);transform-origin:center center}
 .corner img{width:100%;height:100%;display:block;object-fit:contain}
@@ -20,11 +20,11 @@
 .tr{top:8px;right:8px;transform:scaleX(-1)}
 .br{bottom:8px;right:8px;transform:scale(-1,-1)}
 .bl{bottom:8px;left:8px;transform:scaleY(-1)}
-.content{position:relative;z-index:3}.ornament{width:100px;margin:0 auto 20px}.ornament img{width:100%;display:block}
+.content{position:relative;z-index:3}.ornament{width:clamp(210px,26vw,260px);max-width:88%;margin:0 auto 23px}.ornament img{width:100%;display:block;filter:drop-shadow(0 1px 1px #161a20)}
 .eyebrow{font:10px/1.9 Arial,sans-serif;letter-spacing:.29em;text-transform:uppercase;color:#e9e9eb}
 h1{font-weight:400;font-size:clamp(43px,8vw,76px);line-height:1.04;letter-spacing:-.035em;margin:17px 0}h1 em{font-weight:400;color:#d7d9dc}
 .subtitle{font-style:italic;color:#eeedef;font-size:clamp(16px,2.7vw,22px);line-height:1.5}
-.divider{width:190px;max-width:65%;margin:25px auto}.divider img{display:block;width:100%}
+.divider{width:clamp(300px,44vw,420px);max-width:90%;margin:27px auto}.divider img{display:block;width:100%;height:auto;filter:drop-shadow(0 1px 1px #171a20)}
 .names{font-size:clamp(30px,5.5vw,47px);line-height:1.38;margin:22px 0 27px}.amp{color:#d0d2d5;font-style:italic;font-size:.86em}
 .medallion{width:min(82%,460px);margin:25px auto 22px}.medallion img{display:block;width:100%;height:auto;animation:glow 4s ease-in-out infinite;filter:drop-shadow(0 5px 8px #26071135)}
 .message{max-width:560px;margin:25px auto;font-size:clamp(15px,2.2vw,18px);line-height:1.8}
@@ -32,7 +32,7 @@ h1{font-weight:400;font-size:clamp(43px,8vw,76px);line-height:1.04;letter-spacin
 .floaters{position:absolute;inset:-28px -30px;pointer-events:none;overflow:hidden;z-index:5}.float{position:absolute;left:var(--x);top:var(--y);width:var(--s);height:var(--s);opacity:0;animation:float var(--t) ease-in-out var(--d) infinite}.float img{width:100%;height:100%;object-fit:contain}
 @keyframes float{0%{opacity:0;transform:translateY(10px) rotate(-12deg) scale(.8)}20%{opacity:.85}40%{opacity:.22;transform:translate(var(--dx),-7px) rotate(9deg) scale(1.04)}60%{opacity:.9}80%{opacity:.3;transform:translate(calc(var(--dx)*-.6),-20px) rotate(-8deg) scale(.9)}100%{opacity:0;transform:translateY(-30px) rotate(14deg) scale(.8)}}
 @keyframes glow{0%,100%{filter:drop-shadow(0 0 0 #fff0)}50%{filter:drop-shadow(0 0 10px #ffffff30)}}
-@media(max-width:600px){body{padding:20px 0}.page{width:calc(100% - 26px)}.card{padding:48px 22px}.frame{inset:14px}.corner{width:clamp(76px,24vw,100px)}.tl{top:7px;left:7px}.tr{top:7px;right:7px}.bl{bottom:7px;left:7px}.br{bottom:7px;right:7px}.eyebrow{font-size:8px;letter-spacing:.2em}.message{line-height:1.75}.details{font-size:9px;letter-spacing:.1em}.medallion{width:min(92%,360px)}.background-art{inset:-42px -58px}.floaters{inset:-18px -8px}}
+@media(max-width:600px){body{padding:20px 0}.page{width:calc(100% - 26px)}.card{padding:48px 22px}.frame{inset:14px}.corner{width:clamp(76px,24vw,100px)}.tl{top:7px;left:7px}.tr{top:7px;right:7px}.bl{bottom:7px;left:7px}.br{bottom:7px;right:7px}.ornament{width:clamp(205px,68vw,250px);max-width:88%;margin-bottom:21px}.divider{width:clamp(270px,78vw,390px);max-width:90%;margin:24px auto}.eyebrow{font-size:8px;letter-spacing:.2em}.message{line-height:1.75}.details{font-size:9px;letter-spacing:.1em}.medallion{width:min(92%,360px)}.background-art{inset:-20px -8px}.floaters{inset:-18px -8px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important}.float{opacity:.35}}
 </style>
 </head>
@@ -62,17 +62,17 @@ h1{font-weight:400;font-size:clamp(43px,8vw,76px);line-height:1.04;letter-spacin
     <span class="corner br"><img src="assets/corner.png" alt=""></span>
 
     <div class="content">
-      <div class="ornament"><img src="assets/ornament.svg" alt=""></div>
+      <div class="ornament"><img src="assets/ornament.png" alt=""></div>
       <div class="eyebrow">With grateful hearts and joyful anticipation</div>
       <h1 id="headline">Save <em>the Date</em></h1>
       <div class="subtitle">A celebration of love, laughter &amp; a lifetime together</div>
-      <div class="divider"><img src="assets/divider.svg" alt=""></div>
+      <div class="divider"><img src="assets/divider.png" alt=""></div>
       <div class="eyebrow">Honouring 25 beautiful years of</div>
       <div class="names">Vinay Singhal<br><span class="amp">&amp;</span><br>Seema Singhal</div>
       <div class="medallion"><img src="assets/medallion.png" alt="25 years"></div>
       <div class="eyebrow">Silver Jubilee · Wedding Anniversary</div>
       <p class="message">Twenty-five years of cherished memories, countless blessings, and a love that keeps growing. Please save the date as we celebrate this beautiful milestone with the people who mean the most to us.</p>
-      <div class="divider"><img src="assets/divider.svg" alt=""></div>
+      <div class="divider"><img src="assets/divider.png" alt=""></div>
       <div class="date">Tuesday, 1st December 2026</div>
       <div class="details">Hotel Maharaja Regency · Ludhiana</div>
       <div class="footer">An evening made more special by your presence.</div>
