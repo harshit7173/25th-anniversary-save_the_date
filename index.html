@@ -34,6 +34,31 @@ h1{font-weight:400;font-size:clamp(43px,8vw,76px);line-height:1.04;letter-spacin
 @keyframes glow{0%,100%{filter:drop-shadow(0 0 0 #fff0)}50%{filter:drop-shadow(0 0 10px #ffffff30)}}
 @media(max-width:600px){body{padding:20px 0}.page{width:calc(100% - 26px)}.card{padding:48px 22px}.frame{inset:14px}.corner{width:clamp(76px,24vw,100px)}.tl{top:7px;left:7px}.tr{top:7px;right:7px}.bl{bottom:7px;left:7px}.br{bottom:7px;right:7px}.ornament{width:clamp(205px,68vw,250px);max-width:88%;margin-bottom:21px}.divider{width:clamp(270px,78vw,390px);max-width:90%;margin:24px auto}.eyebrow{font-size:8px;letter-spacing:.2em}.message{line-height:1.75}.details{font-size:9px;letter-spacing:.1em}.medallion{width:min(92%,360px)}.background-art{inset:-20px -8px}.floaters{inset:-18px -8px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important}.float{opacity:.35}}
+
+/* Slightly more compact vertically, preserving the width and visual style */
+.card { padding: clamp(22px, 3.7vw, 38px) clamp(24px, 7vw, 66px); }
+.ornament { width: clamp(180px, 22vw, 220px); margin-bottom: 7px; }
+.eyebrow { line-height: 1.42; }
+h1 { margin: 6px 0; }
+.subtitle { line-height: 1.22; }
+.divider { width: clamp(260px, 38vw, 355px); max-width: 88%; margin: 9px auto; }
+.names { line-height: 1.16; margin: 7px 0 9px; }
+.medallion { width: min(68%, 330px); margin: 7px auto 6px; }
+.message { margin: 9px auto; line-height: 1.43; font-size: clamp(14px, 1.85vw, 16px); }
+.date { margin: 5px 0; line-height: 1.24; }
+.details { line-height: 1.45; }
+.footer { margin-top: 8px; font-size: 15px; line-height: 1.4; }
+@media (max-width: 600px) {
+  .card { padding: 24px 18px; }
+  .ornament { width: clamp(175px, 60vw, 212px); margin-bottom: 7px; }
+  .divider { width: clamp(235px, 70vw, 325px); max-width: 88%; margin: 8px auto; }
+  .names { margin: 7px 0 8px; }
+  .medallion { width: min(80%, 280px); margin: 7px auto 6px; }
+  .message { margin: 9px auto; line-height: 1.43; font-size: 13.5px; }
+  .date { margin: 5px 0; }
+  .footer { margin-top: 7px; font-size: 14px; }
+}
+
 </style>
 </head>
 <body>
